@@ -1,0 +1,4 @@
+AuthType Basic
+AuthUserFile .htpasswd
+AuthName "Contrast Reaction Management Password"
+require valid-user

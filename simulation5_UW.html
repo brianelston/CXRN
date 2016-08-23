@@ -1,0 +1,280 @@
+<HTML>
+<HEAD>  
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title> Contrast-rxn-mgmt: Scenario 5. </title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="949.33">
+  <style type="text/css">
+    body { margin-left: 20%; margin-right: 20%; }
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 18.0px Times; min-height: 23.0px}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 32.0px Times}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 24.0px Times; min-height: 29.0px}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 46.0px Helvetica}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 14.0px Helvetica}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 12.0px Helvetica}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 24.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: left; font: 14.0px Helvetica}
+	p.displayheight{height:20px; }
+	textarea.taBorder{border-style:solid; border-width:5px;border-color:grey;}
+	img.hidden {visibility:hidden;}
+	img.visible {visibility:visible;}
+		
+		.modal {
+		background-color:#fff;
+		display:none;
+		width:350px;
+		padding:15px;
+		text-align:left;
+		border:2px solid #333;
+		z-index:10000;
+	
+		opacity:1.0;
+		-moz-border-radius:6px;
+		-webkit-border-radius:6px;
+		-moz-box-shadow: 0 0 50px #ccc;
+		-webkit-box-shadow: 0 0 50px #ccc;
+	}
+	
+	.modal h2 {
+		background:url(/img/global/info.png) 0 50% no-repeat;
+		margin:0px;
+		padding:10px 0 10px 45px;
+		border-bottom:1px solid #333;
+		font-size:20px;
+	}
+	
+		#layer {
+	height:120px;
+	width:400px;
+
+	/* must be absolutely positioned so that overlapping will occur */
+	position:absolute;
+	background-color:#123;
+	padding:20px;
+	color:white;
+	font-size:30px;
+	margin:30px;
+}
+
+#mainmovieSIM {
+	width:520px;
+	height:360px;
+	
+}
+  </style>
+<script type="text/javascript" src="simulation5_UW.js"></script>
+
+<link rel="stylesheet" type="text/css" href="scripts_utilities/overlay-basic.css"/> 
+
+</head>
+<body onLoad="waitPreloadPage();">
+
+
+<p class="p1"><b>Scenario 5. Please play movie then start simulation.</b></p>
+<hr>
+
+
+<!-- --------------------------MOVIE-------------------------------------------- -->
+<table cellpadding="0" cellspacing="0" width="760" >
+<td>
+<div id="mainmovieSIM"></div>
+
+<!-- <img src="Scenario5_sm.jpg" id="MovieDisplay"> -->
+
+</td>
+<td>
+<!-- -------------------------------SIMULATION CONTROLS--------------------------------------------------- -->
+
+<br>
+<span id="PatientBackground">Pediatric male patient sedated for a contrast enhanced CT scan of the chest, abdomen, and pelvis for evaluation of metastatic neuroblastoma. <br><br>Facemask is on and O2 set to 4L.</span>
+<br><br>
+
+
+<a href="baby_hives.jpg" target="_blank">
+<img src="baby_hives_small.jpg" class="hidden" id="ClinicalImageDisplay" width="148" height="144">
+</a>
+
+<hr>
+<input type="button" value="Play movie" name="Play" onClick="PlayFlashMovie();">
+
+<input type="button" value="Restart Procedure" name="Start" onClick="StartScenario();">
+<br>
+ 
+ 
+</td>
+</table> 
+<hr>
+
+
+<!-- -----------------------------------MED/TECH ACTION CONTROLS----------------------------------------------- -->
+
+<table cellpadding="0" cellspacing="0" width="700" >
+<tr>
+<td>
+
+<table cellpadding="0" cellspacing="0" width="420" >
+<tr>
+<td align="left">	<input type="button" value="Vital signs" name="Vital" onClick="GetVitalSigns();">	</td>
+<td align="center">	<input type="button" value="Pulse oximetry" name="PulseOx" onClick="GetPulseOximetry();">	</td>
+<td align="center">	<input type="button" value="Clinical exam/Stethescope" name="Exam" onClick="DoClinicalExam();">	</td>
+<td align="right">	<input type="button" value="Help/End" name="Help" onClick="ShowLearningPoints();">	</td>
+<td align="right">	<input type="button" value="Learning Points" name="Summary" onClick="ShowReport();">	</td>
+</tr>
+</table> 
+
+<br>
+
+<table cellpadding="2" cellspacing="0" width="300" height="40" Border="1">
+<tr>
+<td width="150">	<p id="HeartRateDisplay">HR:   </p>	</td>
+<td width="150">	<p id="RespiroryRateDisplay">RR:   </p>	</td>
+</tr>
+<tr>
+<td width="150">	<p id="BloodPressureDisplay">BP:   </p>	</td>
+<td width="150">	<p id="OxygenSaturationDisplay">Sat:   </p>	</td>
+</tr>
+</table> 
+
+<br> 
+Tech Action: 
+<select id="SelectTechAction" name="SelectTechAction">
+<option> Select Action </option>
+<option title="RaiseLegs"> Raise Legs </option>
+<option title ="GiveOxygen"> Give Oxygen </option>
+<option title ="StartIVFluids"> Start IV Fluids </option>
+<option title ="StartIVLine"> Start Second IV Line </option>
+<option title ="CallCode">Call Code</option>
+</select>
+
+<input type="button" onclick="DoTechAction()" value="Do Action">
+
+<br>
+<br>
+
+Medication: 
+<select id="SelectMedication" name="SelectMedication">
+<option>Select Medication</option>
+<!-- <option title ="EpinephrineIM"> Epinephrine IM </option> -->
+<option title ="EpinephrineIM"> Epi pen®/Epi pen JR® </option>
+<option title ="EpinephrineSQ"> Epinephrine SQ </option>
+<option title ="EpinephrineIV"> Epinephrine IV </option>
+<option title ="Albuterol">Albuterol Inhaler</option>
+<option title ="Benadryl">Benadryl</option>
+<option title ="Atropine">Atropine</option>
+<option title ="Solumedrol">Solumedrol Steroid</option>
+</select>
+
+
+Amount: <input type="text" name="AmountMedication" id="AmountMedication" size="5">
+
+<form id="SelectDoseUnits" name="SelectDoseUnits">Dose units: 
+<input type="radio"  name = "DoseUnit" title ="DoseMilligrams" value="mg (milligrams)"> mg (milligrams) 
+<input type="radio"  name = "DoseUnit" title="DoseMilliLiters" value="mL (milliliters)"> mL (milliliters) 
+<input type="radio"  name = "DoseUnit" title="Puffs" value="puffs"> puffs 
+</form>
+
+<input type="button" onclick="AdministerMedication()" value="Administer now">
+<input type="button" onclick="FlushIV()" value="Flush IV">
+
+
+</td>
+<td align="left" width="160">
+
+<!-- ALSO NEEDS MEDICATION AND TECH ACTION DROP DOWN -->
+<!-- ALSO NEEDS recent action, progress display, HR, BP, RR, ox-->
+
+<!-- -----------------------------------Progress Meter----------------------------------------------- -->
+<p id="ProgressMeter">Progress:</p>
+
+<ol id="progressdisplay">
+<li><b>Please watch Movie then start procedure </b></li>
+</ol> 
+
+</td>
+</tr>
+</table>
+
+<p id="PatientResponseDisplay" class="displayheight">Patient Says:   </p >
+<p id="TechtResponseDisplay" class="displayheight">Tech Says:   </p >
+
+<textarea  class="taBorder" id="ActionDisplay" rows="10" cols="92" READONLY>Waiting to start. </textarea> 
+
+<hr>
+
+<p class="p5"><a href="./index.html">Home</a></p>
+
+
+<!-- overlays -->
+<div class="simple_overlay" id="Overlay1">
+	<img src="scripts_sim5/learningpoints_5.jpg" />
+</div>
+
+<div class="simple_overlay" id="LearningPoints">
+	<img src="scripts_sim5/learningsolution_5.jpg" />
+</div>
+
+<!-- oxygen dialog box -->
+<div class="modal" id="NasalorFaceMask">
+	<h2>Oxygen</h2>
+
+	<p>
+		Nasal cannula or Face mask?
+	</p>
+
+	<!-- buttons -->
+	<p>
+		<button class="close"> Nasal cannula </button>
+		<button class="close"> Face Mask </button>
+	</p>
+</div>
+
+<!-- oxygen how much dialog box -->
+<div class="modal" id="HowMuchOxygen">
+	<h2>Oxygen</h2>
+
+	<p>
+		How much total oxygen (in Liters)?
+	</p>
+
+	<!-- input form. you can press enter too -->
+	<form>
+		<input />
+		<button type="submit"> OK </button>
+	</form>
+	<br />
+</div>
+
+<!-- IV fluid dialog box -->
+<div class="modal" id="IVFluidAmountBox">
+	<h2>IV Fluid</h2>
+
+	<p>
+		How much IV fluid?
+	</p>
+
+	<!-- buttons -->
+	<p>
+		<button class="close"> Open Wide </button>
+		<button class="close"> 500 mL </button>
+		<button class="close"> 150 mL </button>
+	</p>
+</div>
+
+<!-- Epi pen IM -->
+<div class="modal" id="EpiPenQuestion">
+	<h2>Epinephrine IM</h2>
+	
+	<p>
+		Epi pen® or Epi pen JR®?
+	</p>
+
+	<!-- buttons -->
+	<p>
+		<button class="close"> Epi pen® </button>
+		<button class="close"> Epi pen JR®</button>
+	</p>
+</div>
+
+</BODY>
+</HTML>
